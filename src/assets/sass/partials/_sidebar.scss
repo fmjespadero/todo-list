@@ -1,0 +1,62 @@
+.sidebar{
+    width: 230px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 80px 2fr;
+    @apply pl-4 space-y-5;
+
+    &__header{
+        display: grid;
+        align-items: center;
+        h1{
+            @apply font-mclaren font-bold text-xl px-3;
+        }
+    }
+
+    &__body{
+        display: grid;
+        grid-template-rows: 1fr 0fr;
+        overflow-y: auto;
+        position: relative;
+    }
+    &__body > span{
+        content: '';
+        position: absolute;
+        // border-right: 3px solid #369583;
+        background-color: #369583;
+        border-radius: 100rem;
+        height: 0px;
+        width: 3px;
+        top: 0;
+        right: 0;
+        z-index: -1;
+        transition: all .3s ease-in-out;
+    }
+
+    &__menu{
+        @apply space-y-2;
+
+        &--item{
+            @apply grid items-center py-2;
+        }
+        &--link{
+            display: grid;
+            grid-template-columns: 0fr 1fr;
+            align-items: center;
+            height: 100%;
+            transition: all .2s ease-in-out;
+            @apply  gap-2 text-gray-500;
+
+            h2{
+                @apply font-poppins font-medium;
+            }
+        }
+    }
+    &__footer{
+
+    }
+}
+
+.sidebar__menu--link.active{
+    color: black;
+}
