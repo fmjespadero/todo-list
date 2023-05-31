@@ -1,26 +1,35 @@
-import React, { useEffect, useRef, useState, useMemo } from 'react'
+import React, { useEffect, useRef  } from 'react'
 import { menu } from './constants/data'
 import Icon from './components/ui/Icon'
 import { NavLink, useLocation } from 'react-router-dom'
+const menuItem: ({ title: string; icon: string; link: string; isFooter?: undefined; items?: undefined } | { isFooter: boolean; items: { title: string; icon: string; link: string }[]; title?: undefined; icon?: undefined; link?: undefined })[] = [];
+const footerItem: { title: string; icon: string; link: string }[] = [];
+menu.forEach((item) => {
+  if(item.isFooter){
+    item.items.map((item) => {
+      footerItem.push(item)
+    })
+    return
+  }
+  menuItem.push(item)
+})
+
 const App = () => {
   const linkRef = useRef<HTMLAnchorElement[]>([]);
   const spanRef = useRef<HTMLSpanElement>(null);
-  const [index,setIndex] = useState<number>();
   const location = useLocation();
-  
-  
+
   useEffect(() => {
     const links = linkRef.current;
     const span = spanRef.current; 
     const navHeight = links[0].offsetHeight;
     
-    links.forEach((item, index) => {
+    links.forEach((item) => {
       if(item.classList.contains('active') && span){
         span.style.top = `${item.offsetTop}px`;
         span.style.height = `${navHeight}px`;
       }
     })
-   
   }, [location])
 
   return (
@@ -29,21 +38,32 @@ const App = () => {
         <div className="sidebar__header">
           <h1>.studio</h1>
         </div>
-        <div className="sidebar__body">
+        <div className="sidebar__body gap-5 pb-5">
           <span ref={spanRef}/>
           <ul className="sidebar__menu">
-            {menu.map((item,index) => (
-              <li onClick={() => setIndex(index)} className='sidebar__menu--item' key={index}>
-                <NavLink ref={(element: HTMLAnchorElement ) => (linkRef.current[index] = element)} className='sidebar__menu--link' to={item.link} >
-                  <span><Icon icon={item.icon}/></span>
-                  <h2>{item.title}</h2>
-                </NavLink>
-              </li>
+            {menuItem.map((item, index) => (
+                <li key={index} className='sidebar__menu--item'>
+                  {item && item.icon && item.link && item.title &&(
+                    <NavLink ref={(element: HTMLAnchorElement ) => (linkRef.current[index] = element)} className='sidebar__menu--link' to={item.link} >
+                      <span><Icon icon={item.icon}/></span>
+                      <h2>{item.title}</h2>
+                    </NavLink>
+                  )}
+                </li>
             ))}
           </ul>
-          <div className="sidebar__footer">
-            sidebar__footer
-          </div>
+          <ul className="sidebar__footer">
+            {footerItem.map((item, index) => (
+                <li key={index} className='sidebar__menu--item'>
+                  {item && item.icon && item.link && item.title &&(
+                    <NavLink ref={(element: HTMLAnchorElement ) => (linkRef.current[menuItem.length + index] = element)} className='sidebar__menu--link' to={item.link} >
+                      <span><Icon icon={item.icon}/></span>
+                      <h2>{item.title}</h2>
+                    </NavLink>
+                  )}
+                </li>
+            ))}
+          </ul>
         </div>
       </aside>
     </div>
@@ -51,3 +71,4 @@ const App = () => {
 }
 
 export default App
+

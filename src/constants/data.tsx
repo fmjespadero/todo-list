@@ -25,4 +25,21 @@ export const menu = [
         link: 'notification'
     },
     
+    {
+        isFooter: true,
+        items: [
+            {
+                title: 'Settings',
+                icon: 'heroicons-outline:cog-6-tooth',
+                link: 'settings'
+            },
+            {
+                title: 'Logout',
+                icon: 'heroicons-outline:arrow-left-on-rectangle',
+                link: 'logout'
+            },
+        ]
+    },
+    
+    
 ]

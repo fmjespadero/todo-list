@@ -3,7 +3,7 @@
     height: 100%;
     display: grid;
     grid-template-rows: 80px 2fr;
-    @apply pl-4 space-y-5;
+    @apply pl-4 space-y-5 select-none;
 
     &__header{
         display: grid;
@@ -23,6 +23,7 @@
         content: '';
         position: absolute;
         // border-right: 3px solid #369583;
+        backface-visibility: hidden;
         background-color: #369583;
         border-radius: 100rem;
         height: 0px;
@@ -34,10 +35,31 @@
     }
 
     &__menu{
-        @apply space-y-2;
+        @apply space-y-4;
 
         &--item{
-            @apply grid items-center py-2;
+            @apply grid items-center ;
+        }
+        &--link{
+            display: grid;
+            grid-template-columns: 0fr 1fr;
+            align-items: center;
+            height: 100%;
+            transition: all .2s ease-in-out;
+            @apply  gap-2 text-gray-500;
+
+            h2{
+                @apply font-poppins font-medium;
+            }
+        }
+        &--link.active{
+            color: black;
+        }
+    }
+    &__footer{
+        @apply space-y-4;
+        &--item{
+            @apply grid items-center ;
         }
         &--link{
             display: grid;
@@ -52,11 +74,4 @@
             }
         }
     }
-    &__footer{
-
-    }
-}
-
-.sidebar__menu--link.active{
-    color: black;
 }
