@@ -1,9 +1,14 @@
 export const menu = [
-    // {
-    //     title: 'Overview',
-    //     icon: 'heroicons-outline:home',
-    //     link: 'overview'
-    // },
+    {
+        title: 'Overview',
+        icon: 'heroicons-outline:home',
+        link: 'overview'
+    },
+    {
+        title: 'Stats',
+        icon: 'heroicons-outline:chart-bar',
+        link: 'stats'
+    },
     {
         title: 'Task',
         icon: 'heroicons-outline:rectangle-stack',
@@ -19,12 +24,6 @@ export const menu = [
         icon: 'heroicons-outline:calendar',
         link: 'calendar'
     },
-    {
-        title: 'Notification',
-        icon: 'heroicons-outline:bell',
-        link: 'notification'
-    },
-    
     {
         isFooter: true,
         items: [

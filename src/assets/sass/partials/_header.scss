@@ -1,0 +1,28 @@
+.header{
+    @apply h-[80px];
+    display: grid;
+    align-items: center;
+    grid-template-columns: 3fr 1fr;
+    &__searchbar{
+        form{
+            position: relative;
+            @apply text-base text-gray-500 font-poppins;
+        }
+        form > button{
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            @apply rounded-full;
+        }
+        form > input{
+            @apply   py-1 pl-8 focus:outline-none;
+        }
+    }
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px white inset !important;
+}

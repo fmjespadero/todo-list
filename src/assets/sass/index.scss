@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.app{
+    display: grid;
+    grid-template-columns: 0fr 1fr;
+}
+
 @layer components{
     @import './partials/sidebar';
+    @import './partials/header';
 }
