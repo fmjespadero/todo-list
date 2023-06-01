@@ -1,0 +1,37 @@
+.dropdown{
+    position: relative;
+
+    &__button:hover > svg {
+        color: #000;
+    }
+    &__button{
+        display: flex;
+        z-index: 1;
+
+        & > * {
+            @apply text-gray-300
+        }
+    }
+    &.active > .dropdown__button > *{
+        color: #000;
+    }
+    &__content{
+        position: absolute;
+        right: 0;
+        top: calc(100% + .25rem);
+        background-color: white;
+        border-radius: .25rem;
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+    }
+
+    &.active > .dropdown__content{
+        opacity: 1;
+        transform: translateY(0px);
+        pointer-events: auto;
+
+    }
+}

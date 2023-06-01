@@ -20,16 +20,23 @@ const Sidebar = () => {
 
   useEffect(() => {
     const links = linkRef.current;
-    const span = spanRef.current; 
+    const span = spanRef.current;
     const navHeight = links[0].offsetHeight;
-    
-    links.forEach((item) => {
-      if(item.classList.contains('active') && span){
+    let hasActive = false;
+    for (const item of links) {
+      if (item.classList.contains('active') && span) {
+        hasActive = true;
         span.style.top = `${item.offsetTop}px`;
         span.style.height = `${navHeight}px`;
+        break;
       }
-    })
-  }, [location])
+    }
+    if (!hasActive && span) {
+      span.style.top = `0px`
+      span.style.height = '0px';
+      
+    }
+  }, [location]);
   return (
     <aside className='sidebar'>
         <div className="sidebar__header">

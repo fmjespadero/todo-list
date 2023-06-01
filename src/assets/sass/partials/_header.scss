@@ -2,7 +2,7 @@
     @apply h-[80px];
     display: grid;
     align-items: center;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 0fr;
     &__searchbar{
         form{
             position: relative;
@@ -19,7 +19,59 @@
             @apply   py-1 pl-8 focus:outline-none;
         }
     }
+    &__tools{
+        @apply gap-5;
+        display: flex;
+        align-items: center;
+    }
 }
+
+.notification{
+    @apply flex flex-col ;
+    &__header{
+        @apply flex justify-between text-sm;
+        padding: .75rem;
+        h3{
+            @apply font-semibold;
+        }
+    }
+
+    &__body{
+        display: grid;
+        @apply gap-2 py-3;
+        > div{
+            display: grid;
+            grid-template-columns: 0fr 1fr;
+            @apply gap-2 hover:bg-gray-300 p-2 rounded-sm select-none;
+        }
+        &--pic{
+            @apply w-8 h-8 rounded-full bg-black;
+        }
+
+        &--title{
+            font-size: 12px;
+            @apply font-semibold
+        }
+
+        &--message{
+            font-size: 10px;
+            word-break: break-all;
+            hyphens: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        &--time{
+            font-size: 11px;
+            @apply font-light text-gray-500
+        }
+    }
+}
+
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
