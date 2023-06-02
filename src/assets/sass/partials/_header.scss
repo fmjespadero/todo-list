@@ -38,14 +38,14 @@
 
     &__body{
         display: grid;
-        @apply gap-2 py-3;
+        @apply gap-2 py-3 text-sm;
         > div{
             display: grid;
             grid-template-columns: 0fr 1fr;
             @apply gap-2 hover:bg-gray-300 p-2 rounded-sm select-none;
         }
         &--pic{
-            @apply w-8 h-8 rounded-full bg-black;
+            @apply w-8 h-8 rounded-full border border-black;
         }
 
         &--title{

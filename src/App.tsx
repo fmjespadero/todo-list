@@ -3,6 +3,7 @@ import Sidebar from './components/partials/sidebar'
 import Icon from './components/ui/Icon'
 import Dropdown from './components/ui/Dropdown'
 import { NavLink } from 'react-router-dom'
+import userLogo from './assets/images/userLogo.png';
 const App = () => {
   
     
@@ -12,6 +13,7 @@ const App = () => {
       <Sidebar/>
       <div className='main px-10'>
         <header className='header'>
+          
           <div className='header__searchbar'>
             <form>
               <button><Icon className='text-2xl' icon='heroicons-outline:magnifying-glass' /></button>
@@ -47,6 +49,20 @@ const App = () => {
                 </div>
               </div>
             </Dropdown>
+            <Dropdown width='100px' toggler={<div className='notification__body--pic flex z-[-1] p-1'><img src={userLogo} /></div>} >
+              <div className='notification'>
+                <div className="notification__header">
+                </div>
+                <hr />
+                <div className="notification__body">
+                </div>
+              </div>
+            </Dropdown>
+            {/* <Dropdown width={'250px'} toggler={<div className='w-8 h-8 rounded-full z-[-1] bg-[url("./assets/images/userLogo.png")]' ></div>}>
+              <div>
+                asd
+              </div>
+            </Dropdown> */}
           {/* <span><Icon className='text-[1.5rem]' icon='heroicons-outline:bell'/></span>
             <div className='w-8 h-8 rounded-full bg-black'>
 

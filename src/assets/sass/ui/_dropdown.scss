@@ -1,20 +1,20 @@
 .dropdown{
     position: relative;
 
-    &__button:hover > svg {
-        color: #000;
-    }
+    // &__button:hover > svg {
+    //     color: #000;
+    // }
     &__button{
         display: flex;
         z-index: 1;
 
-        & > * {
-            @apply text-gray-300
-        }
+        // & > * {
+        //     @apply text-gray-300
+        // }
     }
-    &.active > .dropdown__button > *{
-        color: #000;
-    }
+    // &.active > .dropdown__button > *{
+    //     color: #000;
+    // }
     &__content{
         position: absolute;
         right: 0;
