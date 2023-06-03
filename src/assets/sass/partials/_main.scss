@@ -1,0 +1,8 @@
+.main{
+    display: grid;
+    grid-template-rows: 0fr minmax(0px,1fr);
+    @apply px-10;
+    > * {
+        min-width: 0px;
+    }
+}

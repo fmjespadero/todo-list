@@ -1,8 +1,10 @@
 .sidebar{
     width: 230px;
-    height: 100%;
+    height: 100vh;
     display: grid;
-    grid-template-rows: 80px 2fr;
+    position: sticky;
+    top: 0;
+    grid-template-rows: 80px 1fr;
     @apply space-y-5 select-none border-r border-gray-200;
 
     &__header{

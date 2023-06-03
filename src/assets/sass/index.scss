@@ -7,9 +7,11 @@
 .app{
     display: grid;
     grid-template-columns: 0fr 1fr;
+    overflow-y: auto;
 }
 
 @layer components{
+    @import './partials/main';
     @import './partials/sidebar';
     @import './partials/header';
     @import './ui/dropdown';
